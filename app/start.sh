@@ -17,14 +17,6 @@ nginx -c /nginx.conf
 # Start noVNC server
 ./noVNC/utils/novnc_proxy --vnc localhost:5900 &
 
-# Load username/password from Docker secret
-IBKR_USERNAME=$(cat /run/secrets/ibkr_username)
-IBKR_PASSWORD=$(cat /run/secrets/ibkr_password)
-
-# Replace username/password (with '/'s escaped) to config.ini file for IBC
-sed -i "s/\(IbLoginId=\).*/\1${IBKR_USERNAME//\//\\/}/" /opt/ibc/config.ini
-sed -i "s/\(IbPassword=\).*/\1${IBKR_PASSWORD//\//\\/}/" /opt/ibc/config.ini
-
 # Start TWS and automatically restart if it dies
 while true; do
     /opt/ibc/twsstart.sh -inline
