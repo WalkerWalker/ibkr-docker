@@ -1,8 +1,10 @@
 FROM --platform=linux/x86_64 debian:9
 
-RUN apt update \
-    && apt upgrade -y \
-    && apt install -y \
+ENV debian-frontend=noninteractive
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install -y \
        # VNC server and display
        xvfb \ 
        x11vnc \ 
