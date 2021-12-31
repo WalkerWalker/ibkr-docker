@@ -5,7 +5,8 @@ services:
       args:
         ibc_version: 3.12.0
     ports:
-      - "6080:6080"
-      - "8888:8888"
+      - 5900:5900
     restart: unless-stopped
+    volumes:
+      - ./logs:/root/ibc/logs
 
