@@ -9,4 +9,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./logs:/root/ibc/logs
+      - ./config.ini:/opt/ibc/config.ini
+    environment:
+      - TZ=Europe/Zurich
+      - TWS_MAJOR_VRSN=1012
 

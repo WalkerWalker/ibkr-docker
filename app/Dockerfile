@@ -20,14 +20,14 @@ RUN wget https://download2.interactivebrokers.com/installers/tws/latest-standalo
     && rm install.sh
 
 # Install the specified version of IBC
-ARG ibc_version=3.11.0
+ARG ibc_version=3.12.0
 RUN wget https://github.com/IbcAlpha/IBC/releases/download/$ibc_version/IBCLinux-$ibc_version.zip -O ibc.zip \
     && unzip ibc.zip -d /opt/ibc \
     && rm ibc.zip
 
 
-# Copy config files over and set permissions
-COPY config.ini twsstart.sh /opt/ibc/
+# Set permissions of ibc scripts
+COPY twsstart.sh /opt/ibc/
 RUN chmod +x /opt/ibc/*.sh /opt/ibc/scripts/*.sh
 
 # start
