@@ -28,6 +28,7 @@ RUN wget https://github.com/IbcAlpha/IBC/releases/download/$ibc_version/IBCLinux
 
 # Set permissions of ibc scripts
 COPY twsstart.sh /opt/ibc/
+COPY displaybannerandlaunch.sh /opt/ibc/scripts/
 RUN chmod +x /opt/ibc/*.sh /opt/ibc/scripts/*.sh
 
 # start
