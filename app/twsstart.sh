@@ -18,7 +18,7 @@
 #=============================================================================+
 
 
-IBC_INI=/opt/ibc/config.ini
+IBC_INI=~/ibc/config.ini
 TRADING_MODE=
 TWOFA_TIMEOUT_ACTION=exit
 IBC_PATH=/opt/ibc
